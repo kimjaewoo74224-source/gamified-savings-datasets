@@ -12,8 +12,8 @@ data/
     MANIFEST.csv           생성 시점 행 수 · SHA-256
     README_v1.3.md         버전 변경 이력 · 컬럼 해설
   public/
-    bank_marketing/        UCI Bank Marketing (저장소 포함, CC BY 4.0)
-    cookie_cats/ bank_churn/ hillstrom/   ← scripts/download_public.sh로 받기
+    bank_marketing/        UCI Bank Marketing (CC BY 4.0)
+    cookie_cats/ bank_churn/ hillstrom/ marketing_ab/ fastfood_ab/   Kaggle 등 공개 데이터 (원 출처 표기)
   derived/                 Kaggle 대회 원본에서 가공한 파일 (로컬 전용, 커밋 안 함)
   CHECKSUMS.csv            모든 데이터 파일의 SHA-256 (다운로드 대상 포함)
 src/
@@ -33,7 +33,7 @@ git lfs install && git lfs pull          # syn_payments.csv (50MB)는 Git LFS
 pip install -r requirements.txt
 
 python scripts/build_db.py               # SQLite DB 만들기 (선택)
-bash scripts/download_public.sh          # 공개 데이터 받기 (Kaggle 토큰 필요)
+bash scripts/download_public.sh --all    # (선택) 대회 원본 받기 — Kaggle 토큰 · 대회 규칙 동의 필요
 python scripts/verify_checksums.py       # 버전 대조
 ```
 
@@ -64,7 +64,7 @@ cd ../.. && python scripts/verify_checksums.py   # seed 고정 — '일치'면 �
 ## 라이선스
 - 코드 (`src/`, `scripts/`): MIT
 - 합성 데이터 (`data/synthetic_v1.3/`): CC BY 4.0
-- 공개 데이터: 각 원 출처의 조건 — [DATASETS.md](DATASETS.md)
+- 공개 데이터: 각 원 출처의 조건 · 저작권은 원작자에게 있음 — [DATASETS.md](DATASETS.md)
 
 ## GitHub에 올리기 (처음 한 번)
 이 폴더는 이미 `git init`과 첫 커밋이 끝난 상태입니다.
