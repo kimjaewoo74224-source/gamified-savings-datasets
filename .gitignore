@@ -1,0 +1,23 @@
+# 라이선스상 재배포하지 않는 공개 데이터 — scripts/download_public.sh로 받기
+data/public/cookie_cats/*
+data/public/bank_churn/*
+data/public/hillstrom/*
+data/public/marketing_ab/
+data/public/fastfood_ab/
+!data/public/*/.gitkeep
+# 대회 원본과 거기서 만든 파생 파일 (Kaggle 대회 규칙상 재배포 금지)
+data/raw/
+data/derived/*
+!data/derived/.gitkeep
+# CSV에서 다시 만들 수 있는 산출물
+data/synthetic_v1.3/*.db
+data/synthetic_v1.3/*.xlsx
+src/synthetic_v1.3/*.pkl
+# 환경
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.DS_Store
+.kaggle/
+kaggle.json

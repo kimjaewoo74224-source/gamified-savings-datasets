@@ -1,0 +1,93 @@
+﻿테이블,컬럼,타입,설명
+syn_users,user_id,str,사용자 ID
+syn_users,product_id,str,상품 코드 (KB26W 26주 / KB1M 한달 / TS31D 토스31일 / KBKTREE 돈나무 / SHKBO KBO적금)
+syn_users,첫_가입일,str,최초 계좌 개설일
+syn_users,연령대,str,상품별 구간이 다름 — 26주: 20대 이하·30대·40대·50대 이상 / 한달: 10대~50대 이상 / 토스: 10대(17세 미만)·20대~50대 이상
+syn_users,성별,str,남성/여성
+syn_users,첫_적금_여부,str,"이 상품이 생애 첫 적금이면 Y, 아니면 N"
+syn_users,가입전_28일_앱방문,int64,가입 전 28일 앱 방문일 수 (CUPED 공변량)
+syn_accounts,account_id,str,계좌 ID
+syn_accounts,user_id,str,사용자 ID
+syn_accounts,product_id,str,상품 코드 (KB26W 26주 / KB1M 한달 / TS31D 토스31일 / KBKTREE 돈나무 / SHKBO KBO적금)
+syn_accounts,가입_회차,int64,같은 사용자의 몇 번째 가입인지 (1=첫 가입)
+syn_accounts,개설일,str,계좌 개설일
+syn_accounts,만기일,str,만기 예정일
+syn_accounts,상태,str,"계좌 종료 여부 — 진행중(기준일에 열려 있음) / 중도해지(만기 전 해지, 금리 0.5%) / 만기(우대·기본·8%·10%). 납입 중단과는 별개"
+syn_accounts,납입_성공_횟수,int64,성공한 납입 회차 수
+syn_accounts,전체_회차,int64,상품 전체 회차 (26·31)
+syn_accounts,최장_연속,int64,최장 연속 납입 회차 (streak)
+syn_accounts,중단_회차,float64,"납입이 멈춘 회차 (납입 중단 ≠ 계좌 종료: 중단 후에도 해지하지 않으면 계좌는 진행중·만기로 남음. 기준일 이전에 일어난 중단만 기록, 없으면 빈칸)"
+syn_accounts,적용_금리,float64,적용 연이율(%)
+syn_accounts,원금,float64,납입 원금 합계(원)
+syn_accounts,세전_이자,float64,세전 이자(원)
+syn_accounts,파트너_적금,str,26주 함께하기 여부
+syn_accounts,재가입,object,Y=다음 계좌 개설 확인 · N=재가입 기간 경과 후 미개설 · 관측중=기준일까지 재가입 기간이 안 끝남 · 빈칸=진행중
+syn_accounts,재가입_간격일,float64,이전 계좌 종료~재가입 일수
+syn_payments,payment_id,str,납입 기록 ID
+syn_payments,account_id,str,계좌 ID
+syn_payments,회차,int64,회차 번호
+syn_payments,납입_예정일,str,해당 회차 예정일
+syn_payments,납입,int8,납입 성공 1 / 실패 0
+syn_payments,금액,float64,납입 금액(원)
+syn_payments,앱_방문,int64,해당 회차 앱 방문 1
+syn_tree_users,user_id,str,사용자 ID
+syn_tree_users,product_id,str,상품 코드 (KB26W 26주 / KB1M 한달 / TS31D 토스31일 / KBKTREE 돈나무 / SHKBO KBO적금)
+syn_tree_users,첫_참여일,str,돈나무 첫 참여일
+syn_tree_users,연령대,str,20대 이하·30대·40대·50대·60대 이상
+syn_tree_users,성별,str,남성/여성
+syn_tree_users,친구_초대수,int64,친구 초대 횟수
+syn_tree_cycles,tree_id,str,나무 ID
+syn_tree_cycles,user_id,str,사용자 ID
+syn_tree_cycles,나무_회차,int64,몇 번째 나무
+syn_tree_cycles,시작일,str,나무 심은 날
+syn_tree_cycles,수확일,object,수확일
+syn_tree_cycles,소요일,float64,수확까지 걸린 일수
+syn_tree_cycles,상태,str,수확(완료) / 중단(키우다 멈춤) / 진행중
+syn_tree_cycles,보상_원,int64,수확 보상(원)
+syn_kbo_accounts,account_id,str,계좌 ID
+syn_kbo_accounts,product_id,str,상품 코드 (KB26W 26주 / KB1M 한달 / TS31D 토스31일 / KBKTREE 돈나무 / SHKBO KBO적금)
+syn_kbo_accounts,시즌,int64,KBO 시즌
+syn_kbo_accounts,가입일,str,가입일
+syn_kbo_accounts,연령대,str,10대·20대·30대·40대·50대+ 등
+syn_kbo_accounts,성별,str,남성/여성
+syn_kbo_accounts,응원_구단,str,응원 구단
+syn_kbo_accounts,구단_결과,str,우승/포스트시즌/미진출
+syn_kbo_accounts,월_납입액,float64,월 납입액(원)
+syn_kbo_accounts,납입_개월,int64,납입 개월 수
+syn_kbo_accounts,중도해지,str,중도해지 Y / 유지 N
+syn_kbo_accounts,적용_금리,float64,적용 연이율(%)
+syn_kbo_accounts,원금,float64,납입 원금 합계(원)
+syn_kbo_accounts,세전_이자,float64,세전 이자(원)
+syn_survey,respondent_id,str,응답자 ID
+syn_survey,주_사용_상품,str,주로 쓰는 게임형 적금
+syn_survey,연령대,str,10대·20대·30대·40대·50대+ 등
+syn_survey,성별,str,남성/여성
+syn_survey,보상,float64,보상 요소 인식 (1~5점)
+syn_survey,지위,float64,지위·레벨 인식
+syn_survey,자기표현,float64,자기표현 요소
+syn_survey,레이아웃,float64,화면 레이아웃
+syn_survey,색상,float64,색상
+syn_survey,캐릭터,float64,캐릭터
+syn_survey,애니메이션,float64,애니메이션
+syn_survey,몰입,float64,몰입(flow) 점수
+syn_survey,지속사용의도,float64,지속사용의도 점수
+syn_ab_experiment,user_id,str,사용자 ID
+syn_ab_experiment,실험군,str,A_연속성공형 / B_21일문턱형 / C_캐릭터육성형
+syn_ab_experiment,연령대,str,10대·20대·30대·40대·50대+ 등
+syn_ab_experiment,첫_적금_여부,str,"이 상품이 생애 첫 적금이면 Y, 아니면 N"
+syn_ab_experiment,실험전_28일_앱방문,int64,실험 전 28일 앱 방문일 수 (CUPED 공변량)
+syn_ab_experiment,첫날_저금,int8,1일차 저금 1
+syn_ab_experiment,일주차_유지,int8,7일차까지 유지 1
+syn_ab_experiment,저금_일수,int64,31일 중 저금한 날 수
+syn_ab_experiment,달성_21일,int64,21일 이상 저금 1
+syn_ab_experiment,완주_31일,int64,31일 모두 저금 1
+syn_ab_experiment,중단_일차,float64,마지막 저금일 (완주 시 빈칸)
+syn_ab_experiment,재가입_7일,int64,종료 후 7일 내 재가입 1
+syn_ab_experiment,총_저금액,int64,총 저금액(원)
+syn_daily_kpi,product_id,str,상품 코드 (KB26W 26주 / KB1M 한달 / TS31D 토스31일 / KBKTREE 돈나무 / SHKBO KBO적금)
+syn_daily_kpi,날짜,str,일자
+syn_daily_kpi,납입_건수,int64,해당일 납입 성공 건수
+syn_daily_kpi,앱_방문,int64,해당 회차 앱 방문 1
+syn_daily_kpi,예정_건수,int64,해당일 납입 예정 건수
+syn_daily_kpi,신규_계좌,float64,해당일 신규 개설 계좌
+syn_daily_kpi,납입_성공률,float64,납입_건수 / 예정_건수
